@@ -12,12 +12,13 @@ T = 1/freq   #The period of the signal
 omega = 2*np.pi*freq  #Angular frequency 2*pi*f
 t = np.linspace(0, 2*T, 1000)
 
-p_a = V*I*(np.cos(theta)-np.cos(2*omega*t+theta))
-p_b = V*I*(np.cos(theta)-np.cos(2*omega*t-(4*np.pi/3)+theta))
-p_c = V*I*(np.cos(theta)-np.cos(2*omega*t+(4*np.pi/3)+theta))
+p_a = V*I*(np.cos(theta)-np.cos(2*omega*t+theta)) #Power for A
+p_b = V*I*(np.cos(theta)-np.cos(2*omega*t-(4*np.pi/3)+theta)) #Power for B
+p_c = V*I*(np.cos(theta)-np.cos(2*omega*t+(4*np.pi/3)+theta)) #Power for C
 
-P = 3*V*I*np.cos(theta) * np.ones_like(t)
+P = 3*V*I*np.cos(theta) * np.ones_like(t) #Total Power
 
+#Constructing a proper plot
 plt.figure(figsize=(10, 6))
 plt.plot(t, p_a, label='Phase A Power', color = 'red')
 plt.plot(t, p_b, label='Phase B Power', color = 'blue')
@@ -29,4 +30,5 @@ plt.xlabel('Time (seconds)')
 plt.ylabel('Power (Watts)')
 plt.legend()
 plt.grid()
+
 plt.show()
